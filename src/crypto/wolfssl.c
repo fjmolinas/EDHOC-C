@@ -6,7 +6,7 @@
 #if defined(WOLFSSL)
 
 // do not remove
-#include <wolfssl/options.h>
+// #include <wolfssl/options.h>
 
 #include <wolfssl/wolfcrypt/curve25519.h>
 #include <wolfssl/wolfcrypt/hmac.h>

@@ -4,7 +4,7 @@
 
 #if defined(WOLFSSL)
 
-#include <wolfssl/options.h>
+// #include <wolfssl/options.h>
 #include <wolfssl/wolfcrypt/sha256.h>
 
 #elif defined(HACL)
