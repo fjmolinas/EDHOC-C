@@ -17,9 +17,9 @@ struct hacl_Sha256 {
     uint16_t fillLevel;
     uint8_t buffer[HASH_INPUT_BLEN];
 };
+#elif defined(MODULE_TINYCRYPT)
+#include "tinycrypt/sha256.h"
 #elif defined(EMPTY_CRYPTO)
-#elif defined(TINYCRYPT)
-#include "crypto/tinycrypt/sha256.h"
 #else
 #error "No crypto backend selected"
 #endif

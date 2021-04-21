@@ -6,21 +6,24 @@
 
 #if defined(TINYCRYPT)
 
-#include "constants.h"
+#include "tinycrypt/constants.h"
+#include "tinycrypt/hmac.h"
+#include "tinycrypt/hkdf.h"
+#include "tinycrypt/ccm_mode.h"
 #include "edsign.h"
-#include "hmac.h"
 #include "c25519.h"
-#include "hkdf.h"
-#include "ccm_mode.h"
+#include "random.h"
 
 int crypt_gen_keypair(cose_curve_t crv, cose_key_t *key) {
     (void) crv;
-    (void) key;
-    return EDHOC_ERR_RANDOMNESS;
+    random_bytes(key->d, C25519_EXPONENT_SIZE);
+    c25519_prepare(key->d);
+    c25519_smult(key->x, c25519_base_x, key->d);
+    return EDHOC_SUCCESS;
 }
 
 int crypt_copy_hash_context(void *dstCtx, void *srcCtx) {
-    memcpy(dstCtx, srcCtx, sizeof(struct tc_sha256_state_struct ));
+    memcpy(dstCtx, srcCtx, sizeof(struct tc_sha256_state_struct));
 
     return EDHOC_SUCCESS;
 }
