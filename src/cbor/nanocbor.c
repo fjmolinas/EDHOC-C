@@ -233,7 +233,7 @@ int8_t cbor_put_bstr(void *encoder, const uint8_t *bytes, size_t len) {
     }
 }
 
-int8_t cbor_put_uint(void *encoder, uint value) {
+int8_t cbor_put_uint(void *encoder, uint32_t value) {
     if (nanocbor_fmt_uint((nanocbor_encoder_t *) encoder, value) == NANOCBOR_OK) {
         return CBOR_SUCCESS;
     } else {

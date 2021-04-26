@@ -194,7 +194,7 @@ int8_t cbor_put_int(void *encoder, int value);
  *
  * @return Returns CBOR_SUCCESS on success else CBOR_FAILED.
  */
-int8_t cbor_put_uint(void *encoder, uint value);
+int8_t cbor_put_uint(void *encoder, uint32_t value);
 
 /**
  * @brief Create a CBOR array with a predefined number of elements
